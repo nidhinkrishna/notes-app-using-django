@@ -18,3 +18,5 @@ class EditProfile(forms.ModelForm):
     class Meta:
         model=CustomUser
         fields=['username','email','name','image','bio']
+
+

@@ -160,12 +160,12 @@ def profilepage(request):
     return render(request,'profile.html',context)
 
 
-@login_required(login_url='logni')
+@login_required(login_url='login')
 def editprofile(request):
     user=request.user
     form=EditProfile(instance=user)
     if request.method=="POST":
-        form=EditProfile(request.POST,instance=user)
+        form=EditProfile(request.POST,request.FILES,instance=user)
 
         if form.is_valid():
             form.save()
