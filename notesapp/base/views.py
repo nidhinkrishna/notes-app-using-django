@@ -8,9 +8,14 @@ from django.contrib import messages
 # Create your views here.
 @login_required(login_url='login')
 def Homepage(request):
+     notes=Notes.objects.filter(user_id=request.user.id)
+     
+     context={
+         'notes':notes
+     }
 
 
-     return render(request,'home.html')
+     return render(request,'home.html',context)
 
 
 def signup(request):
@@ -59,5 +64,27 @@ def logoutfunction(request):
         logout(request)
         messages.success(request,'succesfully loged out ')
         return redirect('login')
+
+    
+@login_required(login_url='login')
+def addnotes(request):
+      form=AddNotesForm()
+
+      if request.method=="POST":
+          form=AddNotesForm(request.POST)
+          if form.is_valid():
+              var=form.save(commit=False)
+              var.user=request.user
+              var.save()
+              messages.success(request,'added succesfully')
+              return redirect('/')
+
+      context={
+          "form":form
+      }
+      
+
+
+      return render(request,'addnote.html',context)
 
     

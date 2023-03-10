@@ -6,3 +6,9 @@ class RegistrationForm(UserCreationForm):
     class Meta:
         model=CustomUser
         fields=['username','email','password1','password2']
+
+
+class AddNotesForm(forms.ModelForm):
+    class Meta:
+        model=Notes
+        fields=['title','description']

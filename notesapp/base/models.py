@@ -10,3 +10,15 @@ class CustomUser(AbstractUser):
 
     # USERNAME_FIELD='email'
     REQUIRED_FIELDS=[]
+
+class Notes(models.Model):
+    user=models.ForeignKey(CustomUser,null=True,blank=True,on_delete=models.CASCADE)
+    title=models.CharField(null=True,max_length=100)
+    description=models.TextField(null=True)
+    added=models.DateTimeField(auto_now_add=True)
+    modified=models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
+    
+
