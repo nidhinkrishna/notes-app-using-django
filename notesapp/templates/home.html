@@ -4,8 +4,7 @@
  <h1>Home Page</h1>
  <p>hello {{request.user}}</p>
  
-
-
+<a href="{% url 'profile'%}">Profile</a>
 
 <form action="{% url 'search' %}" method="get">
     <input type="text" name="query" id="">

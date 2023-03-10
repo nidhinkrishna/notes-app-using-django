@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% comment %} <img src="{{profile.image.url}}" alt=""> {% endcomment %}
+
+<p>{{profile.email}}</p>
+<p>@{{profile.username}}</p>
+<p>{{profile.bio}}</p>
+<p>{{profile.name}}</p>
+
+<a href="{% url 'editprofile' %}">EditProfile</a>
+{% endblock content %}

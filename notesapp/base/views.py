@@ -88,7 +88,7 @@ def addnotes(request):
 
       return render(request,'addnote.html',context)
 
-
+@login_required(login_url="login")
 def deletepage(request,pk):
     Note=Notes.objects.get(id=pk)
     context={
@@ -106,7 +106,7 @@ def deletepage(request,pk):
 
     
 
-
+@login_required(login_url="login")
 def updatepage(request,pk):
     Note=Notes.objects.get(id=pk)
     
@@ -126,7 +126,7 @@ def updatepage(request,pk):
 
     return render(request,'updatenote.html',context)
    
-
+@login_required(login_url="login")
 def viewnote(request,pk):
     note=Notes.objects.get(id=pk)
 
@@ -136,7 +136,7 @@ def viewnote(request,pk):
 
     return render(request,'viewnote.html',context)
     
-
+@login_required(login_url="login")
 def searchfunction(request):
     query=request.GET.get('query')
 
@@ -148,3 +148,34 @@ def searchfunction(request):
     }
 
     return render(request,'search.html',context)
+
+@login_required(login_url="login")
+def profilepage(request):
+
+    profile=CustomUser.objects.get(id=request.user.id)
+    context={
+        'profile':profile
+    }
+
+    return render(request,'profile.html',context)
+
+
+@login_required(login_url='logni')
+def editprofile(request):
+    user=request.user
+    form=EditProfile(instance=user)
+    if request.method=="POST":
+        form=EditProfile(request.POST,instance=user)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request,'succesfully updated')
+            return redirect('profile')
+        
+    context={
+        'form':form
+    }
+            
+    return render(request,'editprofile.html',context)
+
+
