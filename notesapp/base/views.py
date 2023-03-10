@@ -3,6 +3,7 @@ from .forms import *
 from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.db.models import Q
 
 
 # Create your views here.
@@ -136,4 +137,14 @@ def viewnote(request,pk):
     return render(request,'viewnote.html',context)
     
 
-    
+def searchfunction(request):
+    query=request.GET.get('query')
+
+    notes=Notes.objects.filter(Q(title__icontains=query)|Q(description__icontains=query))
+
+    context={
+        'query':query,
+        'notes':notes
+    }
+
+    return render(request,'search.html',context)

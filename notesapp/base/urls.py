@@ -11,6 +11,8 @@ urlpatterns = [
     path('delete/<str:pk>/',views.deletepage,name='delete'),
     path('update/<str:pk>/',views.updatepage,name='update'),
     path('view/<str:pk>/',views.viewnote,name='view'),
+    path('search/',views.searchfunction,name='search'),
+   
     
     
 ]

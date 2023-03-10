@@ -1,24 +1,12 @@
 {% extends 'base.html' %}
 
- {% block content %}
- <h1>Home Page</h1>
- <p>hello {{request.user}}</p>
- 
-
-
-
-<form action="{% url 'search' %}" method="get">
-    <input type="text" name="query" id="">
-    <input type="submit" value="Search">
-</form>
-
-
+{% block content %}
 {% if request.user.is_authenticated  %}
  <a href="{% url 'logout' %}">logout</a>
  {% endif %}
 <a href="{% url 'addnotes' %}">Add Note</a>
 
-
+<p>you searched for {{query}}</p>
 
 
 
@@ -35,5 +23,7 @@
 
 {% endfor %}
 
- {% endblock content %}
+<a href="{% url 'home' %}">Back</a>
 
+ 
+{% endblock content %}
