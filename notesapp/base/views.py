@@ -30,7 +30,7 @@ def signup(request):
         if form.is_valid():
             form.save()
             messages.success(request,'registration success you can login now')
-            return redirect('/')
+            return redirect('login')
          
 
     return render(request,'signup.html',context)
@@ -86,5 +86,54 @@ def addnotes(request):
 
 
       return render(request,'addnote.html',context)
+
+
+def deletepage(request,pk):
+    Note=Notes.objects.get(id=pk)
+    context={
+        'Note':Note
+    }
+   
+    if request.method=="POST":
+        Note.delete()
+        messages.success(request,'succesfully deleted')
+        return redirect('/')
+
+    
+
+    return render(request,'delete.html',context)
+
+    
+
+
+def updatepage(request,pk):
+    Note=Notes.objects.get(id=pk)
+    
+    form=AddNotesForm(instance=Note)
+
+    if request.method=="POST":
+        form=AddNotesForm(request.POST,instance=Note)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'succesfully updated')
+            
+            return redirect('/')
+    context={
+        'Note':Note,
+        'form':form
+    }
+
+    return render(request,'updatenote.html',context)
+   
+
+def viewnote(request,pk):
+    note=Notes.objects.get(id=pk)
+
+    context={
+        "note":note
+    }
+
+    return render(request,'viewnote.html',context)
+    
 
     

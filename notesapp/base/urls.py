@@ -8,5 +8,9 @@ urlpatterns = [
     path('login/',views.loginPage,name='login'),
     path('logout/',views.logoutfunction,name='logout'),
     path('addnotes/',views.addnotes,name='addnotes'),
+    path('delete/<str:pk>/',views.deletepage,name='delete'),
+    path('update/<str:pk>/',views.updatepage,name='update'),
+    path('view/<str:pk>/',views.viewnote,name='view'),
+    
     
 ]

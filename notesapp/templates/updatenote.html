@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 <form action="" method="post">
     {% csrf_token %}
     <label for="">Title</label>
@@ -9,5 +10,5 @@
     {{form.description}}
     <button>Update</button>
 </form>
-{% endblock content %}
 
+{% endblock content %}

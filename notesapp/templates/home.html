@@ -9,8 +9,12 @@
 <a href="{% url 'addnotes' %}">Add Note</a>
 
 {% for note in notes  %}
-<h3>{{note.title}}</h3>
-<p>{{note.description}}</p>
+<a href="{% url 'view' note.id %}"><p>{{note.title}}</p></a>
+<a href="{% url 'view' note.id %}"><p>{{note.description}}</p></a>
+<p>{{note.added}}</p>
+<p>{{note.modified}}</p>
+<a href="{% url 'delete' note.id %}">delete</a>
+<a href="{% url 'update' note.id %}">Edit</a>
 
 {%empty%}
 <p>No notes available </p>
