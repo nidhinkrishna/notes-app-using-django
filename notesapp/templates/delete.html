@@ -9,13 +9,15 @@
 
 
 {% block content %}
-<p>Do you need to delete?{{Note}}</p>
-<a href="{% url 'home' %}">cancel</a>
+<div class="container">
+    <p class='warning'> Are you sure to delete?{{Note}}</p>
+<a href="{% url 'home' %}" class='cancel'>Cancel</a>
 
 <form action="" method="post">
     {% csrf_token %}
 
-    <button>Submit</button>
+    <button class='submit'>Submit</button>
     
 </form>
+</div>
 {% endblock content %}

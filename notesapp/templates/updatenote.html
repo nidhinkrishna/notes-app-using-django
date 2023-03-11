@@ -1,14 +1,24 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block link %}
+
+<link rel='stylesheet' href="{% static '/css/delete and add.css' %}" >
+
+{% endblock link %}
+
 
 {% block content %}
+<div class="container1">
+<a href="{% url 'home' %}" class='cancel1'>Cancel</a>
 
-<form action="" method="post">
-    {% csrf_token %}
-    <label for="">Title</label>
-    {{form.title}}
-    <label for="">Description</label>
-    {{form.description}}
-    <button>Update</button>
-</form>
-
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="">Title</label>
+        {{form.title}}
+        <label for="">Description</label>
+        {{form.description}}
+        <button class='submit1'>Save</button>
+    </form>
+</div>
 {% endblock content %}
+

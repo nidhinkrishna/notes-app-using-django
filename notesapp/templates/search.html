@@ -1,29 +1,57 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block link %}
 
-{% block content %}
-{% if request.user.is_authenticated  %}
- <a href="{% url 'logout' %}">logout</a>
- {% endif %}
-<a href="{% url 'addnotes' %}">Add Note</a>
-
-<p>you searched for {{query}}</p>
+<link rel='stylesheet' href="{% static '/css/home.css' %}" >
+{% endblock link %}
 
 
-
-{% for note in notes  %}
-<a href="{% url 'view' note.id %}"><p>{{note.title}}</p></a>
-<a href="{% url 'view' note.id %}"><p>{{note.description}}</p></a>
-<p>{{note.added}}</p>
-<p>{{note.modified}}</p>
-<a href="{% url 'delete' note.id %}">delete</a>
-<a href="{% url 'update' note.id %}">Edit</a>
-
-{%empty%}
-<p>No notes available </p>
-
-{% endfor %}
-
-<a href="{% url 'home' %}">Back</a>
-
+ {% block content %}
  
-{% endblock content %}
+<div class="container">
+   <div class="header">
+    <h3>Hello {{request.user|title}}<h3/>
+ 
+   <div class="links">
+    <a href="{% url 'profile'%}">Profile</a>
+    
+    <a href="{% url 'logout' %}">logout</a>
+   </div>
+   <a href="{% url 'addnotes' %}" class='addnotes'>+</a>
+    
+    <form action="{% url 'search' %}" method="get">
+        <input type="text" name="query" id="">
+        <button>Search</button>
+    </form>
+    
+    
+   
+    
+   </div>
+    
+    
+    
+    
+    
+    {% for note in notes  %}
+   <div class="notes">
+    <div class="noteshead">
+    <a href="{% url 'view' note.id %}"><p>Title:{{note.title}}</p></a>
+    <a href="{% url 'view' note.id %}"><p>{{note.description}}</p></a>
+    </div>
+    <p class='date'>Created: {{note.added}}</p>
+    <p class='date'>Last Modified: {{note.modified}}</p>
+    <div class="modify">
+    <a href="{% url 'delete' note.id %}" class='delete'>Delete</a>
+    <a href="{% url 'update' note.id %}" class='edit'>Edit</a>
+    </div>
+   </div>
+    
+    {%empty%}
+    <p>No notes available </p>
+    
+    {% endfor %}
+</div>
+
+ {% endblock content %}
+

@@ -66,6 +66,7 @@ button{
     height: 30px;
     width: 60px;
     font-size: 12px;
+    background-color: aliceblue;
 
 }
 button:hover{
@@ -78,6 +79,7 @@ button:hover{
     border: 1px solid #FBAB7E;
     text-transform: capitalize;
     height: 120px;
+    
 }
 .notes a{
     text-decoration: none;
@@ -102,14 +104,20 @@ button:hover{
 .delete,.edit{
     height: 30px;
     width: 50px;
-    background-color: rgba(255, 0, 0, 0.671);
+    
     color: white;
     border: 1px solid;
     font-size: 15px;
     margin-right: 10px;
     box-sizing: content-box;
     padding: 7px;
+    border-radius: 5px;
+    transition: 0.5s;
 }
-.edit{
+.edit:hover{
     background-color: aqua;
+}
+.delete:hover{
+    background-color: red;
+    color: white;
 }
