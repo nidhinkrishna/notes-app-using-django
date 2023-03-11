@@ -1,4 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block link %}
+
+<link rel='stylesheet' href="{% static '/css/delete and add.css' %}" >
+
+{% endblock link %}
+
+
 
 {% block content %}
 <p>Do you need to delete?{{Note}}</p>

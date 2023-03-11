@@ -1,0 +1,115 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    overflow-y: scroll;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.container{
+   
+    padding: 10px;
+    border: 1px solid #FBAB7E;
+    width: 700px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: relative;
+    margin: 20px 0px;
+   
+
+
+}
+.header{
+    border: 1px solid #FBAB7E;
+    padding: 10px;
+    background-color: #FBAB7E;
+    background-image: linear-gradient(62deg, #FBAB7E 0%, #F7CE68 100%);
+    height: 120px;
+
+}
+.links{
+    position: absolute;
+    top: 20px;
+    right: 30px;
+}
+.links a{
+    margin-right: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+}
+.addnotes{
+    position: absolute;
+    top: 50px;
+    left: 330px;
+    font-size: 58px;
+    text-decoration: none;
+    color: black;
+
+}
+.container form{
+    position: absolute;
+    top: 70px;
+}
+h3{
+    font-size: 25px;
+    font-weight: lighter;
+}
+.container form input{
+    height: 30px;
+    width: 200px;
+}
+button{
+    height: 30px;
+    width: 60px;
+    font-size: 12px;
+
+}
+button:hover{
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+.notes{
+    padding: 10px;
+    border: 1px solid #FBAB7E;
+    text-transform: capitalize;
+    height: 120px;
+}
+.notes a{
+    text-decoration: none;
+    color: black;
+}
+.notes .date{
+    font-size: 12px;
+
+    
+}
+.noteshead{
+    overflow-x:hidden ;
+}
+.modify{
+    position: relative;
+    float: right;
+    /* bottom: 20px; */
+}
+.date{
+    margin-top: 5px;
+}
+.delete,.edit{
+    height: 30px;
+    width: 50px;
+    background-color: rgba(255, 0, 0, 0.671);
+    color: white;
+    border: 1px solid;
+    font-size: 15px;
+    margin-right: 10px;
+    box-sizing: content-box;
+    padding: 7px;
+}
+.edit{
+    background-color: aqua;
+}

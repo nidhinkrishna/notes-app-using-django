@@ -1,0 +1,11 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+/* delete page editing */
+body{
+    display: flex;
+    justify-content: center;
+    align-items: c;
+}

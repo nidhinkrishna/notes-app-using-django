@@ -138,7 +138,7 @@ def viewnote(request,pk):
     
 @login_required(login_url="login")
 def searchfunction(request):
-    query=request.GET.get('query')
+    query=request.GET.get('query') or ''
 
     notes=Notes.objects.filter(Q(title__icontains=query)|Q(description__icontains=query))
 
@@ -146,6 +146,8 @@ def searchfunction(request):
         'query':query,
         'notes':notes
     }
+    if query == '':
+        return redirect('/')
 
     return render(request,'search.html',context)
 
