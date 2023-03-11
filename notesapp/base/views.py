@@ -140,7 +140,7 @@ def viewnote(request,pk):
 def searchfunction(request):
     query=request.GET.get('query') or ''
 
-    notes=Notes.objects.filter(Q(title__icontains=query)|Q(description__icontains=query))
+    notes=Notes.objects.filter(Q(title__icontains=query)|Q(description__icontains=query),user_id=request.user.id)
 
     context={
         'query':query,

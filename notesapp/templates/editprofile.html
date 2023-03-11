@@ -1,12 +1,31 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block link %}
+<link rel='stylesheet' href="{% static '/css/profile.css' %}" >
+
+{% endblock link %}
+
 
 {% block content %}
-
+<div class="container1">
+<a href="{% url 'profile' %}" class='back-pro'>Back</a>
 <form action="" method="post" enctype="multipart/form-data">
 
     {% csrf_token %}
-    {{form.as_p}}
+    <label for="">Username:</label>
+    {{form.username}}
+    <label for="">Name:</label>
+    {{form.name}}
+    <label for="">Email:</label>
+    {{form.email}}
+    <label for="">Bio:</label>
+    {{form.bio}}
+   <div class="images">
+    <label for="">Profile:</label>
+    {{form.image}}
 
+   </div>
     <button>Submit</button>
 </form>
+</div>
 {% endblock content %}

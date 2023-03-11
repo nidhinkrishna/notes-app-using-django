@@ -1,19 +1,28 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block link %}
+<link rel='stylesheet' href="{% static '/css/profile.css' %}" >
+
+{% endblock link %}
+
+
 
 {% block content %}
+<div class="container">
 {% if profile.image %}
-<img src="{{profile.image.url}}" alt="" style="height: 50px;">
+<img src="{{profile.image.url}}" alt="" >
 {% else %}
-<img src=" {%static '/images/default.jpg'%}" alt="" style="height: 50px;">
+<img src=" {%static '/images/default.jpg'%}" alt="" >
 {% endif %}
-
-<p>{{profile.email}}</p>
 <p>@{{profile.username}}</p>
-<p>{{profile.bio}}</p>
-<p>{{profile.name}}</p>
+<p><span>Name:</span>{{profile.name}}</p>
+<p><span>Email:</span>{{profile.email}}</p>
 
-<a href="{% url 'editprofile' %}">EditProfile</a>
+<p><span>Bio:</span>{{profile.bio}}</p>
 
-<a href="{% url 'home' %}">Back</a>
+
+<a href="{% url 'editprofile' %}">Edit Profile</a>
+
+<a href="{% url 'home' %}" class='back'>Back</a>
+</div>
 {% endblock content %}

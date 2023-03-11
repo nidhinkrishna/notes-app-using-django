@@ -18,6 +18,7 @@ body{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     position: relative;
     margin: 20px 0px;
+    
    
 
 
@@ -49,6 +50,7 @@ body{
     text-decoration: none;
     color: black;
 
+
 }
 .container form{
     position: absolute;
@@ -78,7 +80,9 @@ button:hover{
     padding: 10px;
     border: 1px solid #FBAB7E;
     text-transform: capitalize;
-    height: 120px;
+    height: 150px;
+    overflow: hidden;
+    margin-bottom: 10px;
     
 }
 .notes a{
@@ -90,8 +94,13 @@ button:hover{
 
     
 }
+.notes p{
+    margin-top: 5px;
+
+}
 .noteshead{
-    overflow-x:hidden ;
+    overflow:hidden ;
+    height: 45px;
 }
 .modify{
     position: relative;
@@ -111,8 +120,10 @@ button:hover{
     margin-right: 10px;
     box-sizing: content-box;
     padding: 7px;
-    border-radius: 5px;
+    border-radius: 2px;
     transition: 0.5s;
+    position: relative;
+    top:10px;
 }
 .edit:hover{
     background-color: aqua;
@@ -120,4 +131,17 @@ button:hover{
 .delete:hover{
     background-color: red;
     color: white;
+}
+.container #none{
+    font-size: 20px;
+    margin: 20px;
+}
+.back{
+    margin: 20px;
+    text-decoration: none;
+    color: black;
+    /* padding-top: 10px; */
+    box-sizing: content-box;
+    font-size: 20px;
+    float: right;
 }

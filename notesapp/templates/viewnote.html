@@ -1,6 +1,23 @@
 
-<a href="{% url 'home' %}">Back
-    
-</a>
+{% extends 'base.html' %}
+{% load static %}
+{% block link %}
+
+<link rel='stylesheet' href="{% static '/css/delete and add.css' %}" >
+
+{% endblock link %}
+
+
+{% block content %}
+<div class="container2">
+
+<a href="{% url 'home' %}">Back</a>
+<div class="details">
+<label for="">Title:</label>
 <h3>{{note.title}}</h3>
+<label for="">Description:</label>
 <p>{{note.description}}</p>
+</div>
+</div>
+{% endblock content %}
+

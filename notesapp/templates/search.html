@@ -48,9 +48,11 @@
    </div>
     
     {%empty%}
-    <p>No notes available </p>
+    <p id='none'>No notes available </p>
     
     {% endfor %}
+
+    <a href="{% url 'home' %}" class='back'>Back</a>
 </div>
 
  {% endblock content %}

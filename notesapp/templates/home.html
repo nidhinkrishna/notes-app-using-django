@@ -37,7 +37,7 @@
    <div class="notes">
     <div class="noteshead">
     <a href="{% url 'view' note.id %}"><p>Title:{{note.title}}</p></a>
-    <a href="{% url 'view' note.id %}"><p>{{note.description}}</p></a>
+    <a href="{% url 'view' note.id %}"><p>Description:{{note.description}}</p></a>
     </div>
     <p class='date'>Created: {{note.added}}</p>
     <p class='date'>Last Modified: {{note.modified}}</p>
@@ -48,7 +48,7 @@
    </div>
     
     {%empty%}
-    <p>No notes available </p>
+    <p id='none'>No notes available </p>
     
     {% endfor %}
 </div>
