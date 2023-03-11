@@ -6,7 +6,7 @@ class CustomUser(AbstractUser):
     name=models.CharField(max_length=100,null=True,blank=True)
     email=models.EmailField(unique=True,null=True)
     bio=models.TextField(null=True,blank=True)
-    image=models.ImageField(upload_to='images',null=True,blank=True,default='/home/nidhin/Desktop/notesapp/notesapp/static/images/default.jpg')
+    image=models.ImageField(upload_to='images',null=True,blank=True)
 
     # USERNAME_FIELD='email'
     REQUIRED_FIELDS=[]
